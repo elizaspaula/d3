@@ -7,14 +7,17 @@ const connect = function () {
     port: 50542,
   });
 
-  conn.on("connect", () => {
-    console.log("It's got a sharp tongue, this server!");
-  });
   // interpret incoming data as text
+
   conn.setEncoding("utf8");
 
   return conn;
 };
+
+const coon = connect();
+coon.on("data", (data) => {
+  console.log(data);
+});
 
 console.log("Connecting ...");
 connect();
